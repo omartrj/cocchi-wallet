@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #505050;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+}
+
+#container {
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: #dfe7fd;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.058);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+#title {
+  margin-bottom: 20px;
+}
+
+#title img:hover {
+  transform: rotate(360deg);
+  transition: 0.5s;
+}
+
+#title img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  transition: 0.5s;
+  border-radius: 50%;
+}
+
+#title h1 {
+  color: #5650d2;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+#title .token {
+  font-weight: 300;
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+
+#title .token::after {
+  content: "$";
+  font-size: 25px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+.input-group label {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  margin-right: 10px; /* Adjust the margin as needed */
+  width: 25px;
+}
+
+.input-container input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.input-container input::placeholder {
+  color: #a7a7a7;
+}
+
+.button {
+  background-color: #5650d2;
+  transition: 0.3s;
+  color: white;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.button:hover {
+  background-color: #413ca0;
+}
+
+.full-button {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 30px;
+}
+
+#login-button {
+  margin-top: 20px;
+}
+
+#or {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 15px auto;
+  width: 50px;
+  text-align: center;
+  position: relative;
+}
+
+#or hr {
+  border: none;
+  border-top: 1px solid #a7a7a7;
+}
+
+#dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(0, 0, 0, 0.058);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#dialog-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+#dialog.error #dialog-title::before {
+  content: "❌ ";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#dialog.success #dialog-title::before {
+  content: "✅ ";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#dialog.warning #dialog-title::before {
+  content: "⚠️ ";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#dialog-message {
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+#dialog-message strong {
+  font-weight: 500;
+}
+
+#dialog-message a {
+  color: #5650d2;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+#dialog-message a:hover {
+  text-decoration: underline;
+}
+
+#dialog-message a:visited {
+  color: #5650d2;
+}
+
+#dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#dialog-button {
+  max-width: 100px;
+}
+
+#dialog-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  display: none;
+  animation: rotate 1s linear infinite;
+}
+
+#dialog.warning #dialog-button {
+  display: none;
+}
+
+#dialog.warning #dialog-spinner {
+  display: block;
+}
+
+#address {
+  border-radius: 20px;
+  cursor: pointer;  
+  margin: auto;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  z-index: 2;
+}
+
+#address span {
+  color: #cbdaff;
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+#address-tooltip {
+  position: absolute;
+  background-color: #505050;
+  padding: 5px 10px;
+  border-radius: 10px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: -1;
+}
+
+#address-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 10px solid transparent;
+  border-bottom-color: #505050;
+}
+
+#address-tooltip p {
+  color: white;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+#transaction-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.transaction-button {
+  width: 50%;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 20px;
+}
+
+#input-target-address {
+  margin-bottom: 20px;
+}
+
+#balance-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 20px auto;
+}
+
+#refresh-button {
+  height: 30px;
+  align-self: self-start;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30%;
+  padding: 5px;
+  transition: padding 0.3s;
+}
+
+#refresh-button:hover {
+  /* transform: rotate(360deg); */
+  padding: 3px;
+  transition: padding 0.3s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#balance {
+  font-size: 45px;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+#currency {
+  font-size: 25px;
+}
+
+#currency.token {
+  font-size: 30px;
+  margin-right: 10px;
+  font-weight: 300;
+}
+
+#currency.token::after {
+  content: "$";
+  font-size: 20px;
+}
+
+#logout-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: fit-content;
+  margin: auto;
+  padding: 0 10px;
+}
+
+#logout-button:hover {
+  color: #5650d2;
+}
+
+#logout-button::before {
+  content: "🡠";
+  font-size: 15px;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+#logout-button:hover::before {
+  margin-left: -15px;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+@media (max-width: 500px) {
+  #container {
+    width: 90%;
+  }
+
+  #dialog {
+    width: 90%;
+  }
+
+  #title img:hover {
+    transform: none;
+  }
+
+  #logout-button::before {
+    content: "←";
+  }
+
+}
